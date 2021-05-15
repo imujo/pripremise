@@ -1,0 +1,91 @@
+// NAV
+nav {
+  height: 100px;
+  max-width: 1700px;
+  @include flex($direction: row, $jc: space-between);
+  padding: 0 70px;
+  margin: 0 auto;
+
+  // LINKS
+  & ul {
+    @include flex($direction: row);
+    height: 100%;
+  }
+
+  // LINK
+  & a {
+    height: 100%;
+  }
+  & li {
+    @include size(100%, 220px);
+    padding: 0;
+    margin: 0;
+    @include flex();
+
+    &:hover {
+      height: calc(100% - 2px);
+      border: 1px solid $darkGrey;
+      cursor: pointer;
+    }
+    &:active {
+      box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.219);
+    }
+  }
+}
+
+// LOGO
+.logo {
+  display: block;
+  @include size(100px, 90px);
+  background-size: 100% 100%;
+
+  background-image: url(/src/assets/Logo.svg);
+  background-repeat: no-repeat;
+}
+
+// DONIRAJ
+.doniraj {
+  @include btn(35px, 120px, 0.8em);
+}
+
+// < 1100px
+@media (max-width: 1100px) {
+  nav {
+    padding: 0 40px;
+    & li {
+      width: 150px;
+    }
+  }
+}
+
+// < 700px
+@media (max-width: 700px) {
+  nav {
+    height: 70px;
+    & ul {
+      display: none;
+    }
+    & .logo {
+      @include size(60px, 50px);
+    }
+  }
+  .doniraj {
+    @include btn(25px, 85px, 0.6em);
+  }
+}
+
+// PHONE LANDSCAPE
+@media (orientation: "landscape") and (max-width: 900px) {
+  nav {
+    height: 70px;
+    & ul {
+      display: none;
+    }
+    & .logo {
+      @include size(70px, 60px);
+    }
+  }
+  .doniraj {
+    @include btn(30px, 100px, 0.65em);
+  }
+}

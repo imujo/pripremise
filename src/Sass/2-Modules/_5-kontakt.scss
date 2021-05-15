@@ -1,0 +1,89 @@
+.kontaktDiv {
+  @include sec(100px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 100px;
+  align-items: center;
+
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  & form {
+    padding: 20px;
+    height: 80%;
+    @include flex($ai: center, $jc: space-between);
+
+    & .input-narrow {
+      @include inp(60px, 40%);
+    }
+    & .input-wide {
+      @include inp(60px, 100%);
+    }
+
+    & .message {
+      min-width: 100%;
+      max-width: 100%;
+      min-height: 30%;
+      max-height: 50%;
+      border: none;
+      outline: none;
+    }
+
+    & .preuzmiButton {
+      @include btn(50px, 140px);
+    }
+
+    & .nameDiv {
+      width: 100%;
+      @include flex($direction: row, $jc: space-between);
+    }
+
+    & .sent {
+      @include flex();
+      @include size(30px, 100%);
+    }
+  }
+
+  & .aboutDiv {
+    height: 80%;
+    padding: 20px;
+    & h3 {
+      color: $red;
+      font-weight: 600;
+      margin-bottom: 50px;
+    }
+    & p {
+      line-height: 24px;
+    }
+  }
+}
+
+// MEDIA QUERIES
+@media (max-width: 1100px) {
+  .kontaktDiv {
+    @include sec(80px);
+  }
+}
+
+@media (max-width: 700px), (orientation: landscape) and (max-width: 900px) {
+  .kontaktDiv {
+    height: auto;
+    grid-template-columns: 100%;
+    padding: 50px;
+    & form {
+      height: 500px;
+      & .input-narrow {
+        @include inp(30px, 40%);
+      }
+      & .input-wide {
+        @include inp(30px, 100%);
+      }
+      & .preuzmiButton {
+        @include btn(35px, 100px, 0.8em);
+      }
+    }
+  }
+  & h3 {
+    font-size: 30px;
+  }
+}

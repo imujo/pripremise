@@ -1,0 +1,119 @@
+.cardDiv {
+  @include size(44vh, 34vh);
+  border-radius: 20px;
+  @include gradient($grey);
+  transform: scale(0.92);
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+
+  justify-items: center;
+  align-items: flex-end;
+
+  // SELECT
+  & p {
+    @include flex($direction: row);
+    cursor: pointer;
+    width: 100%;
+    height: 35%;
+  }
+
+  // SELECTED
+  &[isselected="1"][openanimation="0"][closeanimation="0"] {
+    transform: scale(0.94);
+    background-image: none;
+    background-color: $mediumRed;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.4);
+
+    h4 {
+      color: $darkRed;
+    }
+
+    & > div {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: 30% 35% 35%;
+      justify-items: center;
+      @include size(100%, 70%);
+
+      // RAZINE
+      & .razine {
+        width: 100%;
+        @include flex($direction: row, $jc: space-around);
+
+        // Razina A and Razina B
+        & > div {
+          @include flex();
+
+          & p {
+            color: $darkRed;
+          }
+
+          & .checkbox {
+            margin-top: 8px;
+            @include checkbox(20px);
+          }
+        }
+      }
+
+      // YEAR SLIDER
+      .yearSlider {
+        width: 100%;
+        align-self: center;
+      }
+
+      //   DESELECT
+      & > p {
+        color: white;
+        align-self: flex-end;
+        height: 100%;
+      }
+    }
+  }
+
+  // Animations
+  &[openanimation="1"] {
+    animation: select 0.2s reverse;
+  }
+  &[closeanimation="1"] {
+    animation: select 0.2s;
+  }
+}
+
+// Animations
+@keyframes select {
+  100% {
+    box-shadow: none;
+    @include gradient($grey);
+    & h4 {
+      color: $darkGrey;
+    }
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  0% {
+    box-shadow: none;
+    background-image: none;
+    background-color: $mediumRed;
+    box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.4);
+    & h4 {
+      color: $darkRed;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .cardDiv {
+    & .checkbox {
+      transform: scale(0.8);
+    }
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .cardDiv {
+    @include size(80vh, 60vh);
+  }
+}

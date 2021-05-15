@@ -1,0 +1,34 @@
+.downloadProgressDiv {
+  @include size(100%, 100%);
+  @include flex($direction: row);
+
+  & .processing {
+    @include size(100%, 150px);
+    @include flex($direction: row, $jc: space-between);
+  }
+
+  & .loading {
+    @include size(30px, 200px);
+    background-color: $grey;
+    @include gradient($grey);
+    & .loaded {
+      height: 30px;
+      background-color: $green;
+      @include gradient($green);
+    }
+  }
+}
+
+@media (max-width: 700px), (orientation: "landscape") and (max-width: 900px) {
+  .downloadProgressDiv {
+    & .processing {
+      @include size(100%, 120px);
+    }
+    & .loading {
+      @include size(22px, 150px);
+      & .loaded {
+        height: 22px;
+      }
+    }
+  }
+}

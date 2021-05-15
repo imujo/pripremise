@@ -1,0 +1,18 @@
+.titleDiv {
+  height: 100px;
+  @include flex();
+  background-color: $red;
+}
+
+// MEDIA QUERIES
+@media (max-width: 1100px) {
+  .titleDiv {
+    height: 80px;
+  }
+}
+
+@media (max-width: 700px) {
+  .titleDiv {
+    height: 50px;
+  }
+}

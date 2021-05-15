@@ -1,0 +1,16 @@
+$red: #bf5b5b;
+$brightRed: #ff0000;
+$mediumRed: #c74c4c;
+$darkRed: #661515;
+$grey: #d6d6d6;
+$darkGrey: #686868;
+$white: white;
+$green: rgb(21, 189, 21);
+
+@mixin gradient($color, $percentage: 12%) {
+  background-image: linear-gradient(
+    to top right,
+    $color,
+    lighten($color, $percentage)
+  );
+}

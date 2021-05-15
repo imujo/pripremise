@@ -1,0 +1,86 @@
+// INPUT
+@mixin inp($height, $width) {
+  @include gradient($grey);
+  height: $height;
+  width: $width;
+  box-sizing: border-box;
+  padding: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+// FLEX
+@mixin flex($direction: column, $jc: center, $ai: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+// BACKGROUND IMAGE
+@mixin backgroundImage($link) {
+  background-image: url($link);
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+}
+
+// BUTTON
+@mixin btn($height, $width, $fontSize: 1em) {
+  background-color: $brightRed;
+  color: $white;
+  height: $height;
+  width: $width;
+  font-size: $fontSize;
+  border-radius: 10px;
+  cursor: pointer;
+  @include flex();
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  &:active {
+    transform: scale(0.99);
+    box-shadow: none;
+  }
+}
+
+// BODY
+@mixin sec($navHeight: 100px) {
+  box-sizing: border-box;
+  height: calc(100vh - #{$navHeight});
+  width: 100%;
+}
+
+// SIZE
+@mixin size($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+// CHECKBOX
+@mixin checkbox($height, $border-radius: 3px) {
+  -webkit-appearance: none;
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 9px;
+  border-radius: 3px;
+  height: 20px;
+  width: 20px;
+  outline: none;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  &:checked {
+    background-color: $darkRed;
+  }
+  &:checked:after {
+    content: "\2713";
+    font-size: 1px;
+    font-weight: 900;
+    position: relative;
+    top: -7px;
+    left: -4px;
+    color: white;
+  }
+}
