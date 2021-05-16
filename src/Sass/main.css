@@ -507,6 +507,13 @@ nav li:active {
   }
 }
 
+.matureBackground {
+  background-image: url("/src/assets/mature_background.svg");
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+}
+
 .matureDiv {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -673,6 +680,8 @@ nav li:active {
   background-image: linear-gradient(to top right, #d6d6d6, whitesmoke);
   -webkit-transform: scale(0.92);
           transform: scale(0.92);
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.06);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.06);
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 100%;
@@ -1168,6 +1177,13 @@ nav li:active {
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
+}
+
+.kontaktBackground {
+  background-image: url("/src/assets/kontakt_background.svg");
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
 }
 
 .kontaktDiv {

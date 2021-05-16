@@ -1,5 +1,6 @@
 .footerDiv {
   height: 60px;
+
   @include flex();
   & a {
     color: $darkRed;

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="980" viewBox="0 0 1920 980">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.097" y1="1.101" x2="-0.066" y2="-0.059" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.948" stop-color="#ffe2e2"/>
+      <stop offset="1" stop-color="#ffe2e2"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.133" y1="0.483" x2="0.958" y2="1.343" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#e9f5ff"/>
+    </linearGradient>
+    <clipPath id="clip-Web_1920_2">
+      <rect width="1920" height="980"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_2" data-name="Web 1920 – 2" clip-path="url(#clip-Web_1920_2)">
+    <rect width="1920" height="980" fill="#fff"/>
+    <g id="Group_18" data-name="Group 18" transform="translate(1920 1415.028) rotate(180)">
+      <path id="Path_5" data-name="Path 5" d="M5750,926.028l317.61-98.852L7670,328.451,5750,99.837Z" transform="translate(-5749.306 122.596)" fill="url(#linear-gradient)"/>
+      <path id="Path_4" data-name="Path 4" d="M5750,100H7670.694V910.4L5750,560.536Z" transform="translate(-5750 -153.972)" fill="url(#linear-gradient-2)"/>
+    </g>
+  </g>
+</svg>

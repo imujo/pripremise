@@ -1,6 +1,11 @@
+.matureBackground {
+  @include backgroundImage("/src/assets/mature_background.svg");
+}
+
 // MAIN DIV
 .matureDiv {
   @include sec(100px);
+
   display: grid;
   grid-template-columns: 80%;
   grid-template-rows: 20% 60% 15%;

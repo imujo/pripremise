@@ -7,12 +7,15 @@ const Kontakt = () => {
     const [notsent, setnotsent] = useState(0)
 
     return (
-        <div className='kontaktDiv' >
+        
+        <div className="kontaktBackground">
+
+            <div className='kontaktDiv' >
 
 
 
             <form onSubmit={e => sendEmail(e, setsent, setnotsent)} > 
-        
+
                 {/* NAME */}
                 <div className="nameDiv">
                     <input type="text" required className='fName input-narrow' placeholder='Ime' name='fName'/>
@@ -31,7 +34,7 @@ const Kontakt = () => {
                     {sent ? <p className='messageFont-s' >Poslano!</p> : undefined}
                     {notsent ? <p className='messageFont-f'>Nije poslano...</p> : undefined}
                 </div>
-                   
+                
             </form> 
 
 
@@ -50,7 +53,10 @@ const Kontakt = () => {
 
 
 
+            </div>
+
         </div>
+        
     )
 }
 

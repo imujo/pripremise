@@ -27,7 +27,9 @@ const Mature = () => {
     //#endregion
 
     return(
-        <div className="matureDiv" >
+        <div className="matureBackground">
+            
+            <div className="matureDiv" >
 
 
 
@@ -73,6 +75,9 @@ const Mature = () => {
 
 
         </div> 
+
+        </div>
+        
     )
 }
 

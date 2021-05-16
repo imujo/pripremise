@@ -1,3 +1,7 @@
+.kontaktBackground {
+  @include backgroundImage("/src/assets/kontakt_background.svg");
+}
+
 .kontaktDiv {
   @include sec(100px);
   max-width: 1200px;

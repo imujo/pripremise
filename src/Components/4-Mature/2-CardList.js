@@ -1,14 +1,15 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Card from './3-Card'
 import {BackendContext} from '../../State/BackendState'
+import {changeStateObjectProperty} from '../../Functions'
 
 const CardList = () => {
 
 
     // Splide options
     let primaryOptions = {
-        type: 'slide',
+        type: 'loop',
         autoWidth: true,
         drag: false,
         gap: '80px',
@@ -19,10 +20,10 @@ const CardList = () => {
         trimSpace: false,
         start: 1,
         height: "auto",
-        padding: {
-            top: "10rem"
-        }
     }
+
+
+
 
     // State
     const {matureListGlobal} = useContext(BackendContext)
@@ -38,7 +39,7 @@ const CardList = () => {
 
 
 
-            <Splide className='splide'  options={primaryOptions}>
+            <Splide className='splide'  options={primaryOptions} >
 
 
                 {matureList.map((matura, i) =>{
@@ -62,8 +63,8 @@ const CardList = () => {
 
             </Splide>
 
-
-
+    
+     
 
         </div> 
     )

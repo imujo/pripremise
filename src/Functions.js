@@ -114,3 +114,16 @@ export const sendEmail = (e, setsent, setnotsent) => {
     });
     e.target.reset()
 }
+
+export const changeStateObjectProperty = (setstate, object, key, newValue) => {
+    const copyOfObject = { ...object }
+    delete copyOfObject[key]
+
+    const updatedValue = {}
+    updatedValue[key] = newValue
+
+    setstate({
+        ...copyOfObject,
+        ...updatedValue
+    })
+}

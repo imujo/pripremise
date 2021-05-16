@@ -6,6 +6,7 @@ $grey: #d6d6d6;
 $darkGrey: #686868;
 $white: white;
 $green: rgb(21, 189, 21);
+$lightBlue: rgb(233, 245, 255);
 
 @mixin gradient($color, $percentage: 12%) {
   background-image: linear-gradient(
