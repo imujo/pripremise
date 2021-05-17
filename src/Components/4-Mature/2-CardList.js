@@ -12,7 +12,7 @@ const CardList = () => {
         type: 'loop',
         autoWidth: true,
         drag: false,
-        gap: '80px',
+        gap: '40px',
         rewind: true,
         perMove: 1,
         pagination: false,

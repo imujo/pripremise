@@ -6,6 +6,9 @@ import Kontakt from './Components/5-Kontakt'
 import Footer from './Components/6-Footer'
 
 function App() {
+
+  console.log(window.innerWidth)
+
   return (
     <div className="App">
       <Nav />

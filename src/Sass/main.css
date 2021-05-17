@@ -521,8 +521,8 @@ nav li:active {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 80%;
-      grid-template-columns: 80%;
+  -ms-grid-columns: 95%;
+      grid-template-columns: 95%;
   -ms-grid-rows: 20% 60% 15%;
       grid-template-rows: 20% 60% 15%;
   padding-bottom: 20px;
@@ -533,7 +533,7 @@ nav li:active {
       -ms-flex-align: center;
           align-items: center;
   justify-items: center;
-  max-width: 1700px;
+  max-width: 1160px;
   margin: 0 auto;
   position: relative;
 }
@@ -573,6 +573,12 @@ nav li:active {
           transform: scale(0.99);
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+@media (max-width: 1160px) {
+  .matureDiv {
+    max-width: 430px;
+  }
 }
 
 @media (max-width: 1100px) {

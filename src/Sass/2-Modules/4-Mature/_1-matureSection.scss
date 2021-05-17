@@ -7,13 +7,13 @@
   @include sec(100px);
 
   display: grid;
-  grid-template-columns: 80%;
+  grid-template-columns: 95%;
   grid-template-rows: 20% 60% 15%;
   padding-bottom: 20px;
   justify-content: center;
   align-items: center;
   justify-items: center;
-  max-width: 1700px;
+  max-width: 1160px;
   margin: 0 auto;
   position: relative;
 }
@@ -21,6 +21,12 @@
 // PREUZMI BUTTON
 .preuzmiBtn {
   @include btn(55px, 170px, 1.2em);
+}
+
+@media (max-width: 1160px) {
+  .matureDiv {
+    max-width: 430px;
+  }
 }
 
 // MEDIA QUERIES
