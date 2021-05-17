@@ -1,15 +1,14 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import Card from './3-Card'
 import {BackendContext} from '../../State/BackendState'
-import {changeStateObjectProperty} from '../../Functions'
 
 const CardList = () => {
 
 
     // Splide options
     let primaryOptions = {
-        type: 'loop',
+        type: 'slide',
         autoWidth: true,
         drag: false,
         gap: '40px',
@@ -18,7 +17,7 @@ const CardList = () => {
         pagination: false,
         focus: 'center',
         trimSpace: false,
-        start: 1,
+        start: 2,
         height: "auto",
     }
 
