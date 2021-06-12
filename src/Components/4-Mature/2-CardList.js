@@ -8,7 +8,7 @@ const CardList = () => {
 
     // Splide options
     let primaryOptions = {
-        type: 'slide',
+        type: 'loop',
         autoWidth: true,
         drag: false,
         gap: '40px',
