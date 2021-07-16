@@ -5,15 +5,19 @@ import SortButton from './SortButton';
 import { useMediaQuery } from 'react-responsive'
 import {BackendContext} from '../../State/BackendState'
 import { useContext } from 'react';
+import SearchField from './SearchField'
 
 
 const Mature = () => {
 
     //#region State
 
-        const {matureLoadedGlobal, preuzmiGlobal} = useContext(BackendContext)
+        const {matureLoadedGlobal, preuzmiGlobal,processingGlobal, percentageGlobal, downloadedGlobal} = useContext(BackendContext)
         const [matureLoaded, ] = matureLoadedGlobal
         const [preuzmi, setpreuzmi] = preuzmiGlobal
+        const [processing,] = processingGlobal;
+        const [percentage,] = percentageGlobal;
+        const [downloaded] = downloadedGlobal
 
     //#endregion
 
@@ -26,6 +30,7 @@ const Mature = () => {
     
     //#endregion
 
+
     return(
         <div className="matureBackground">
             
@@ -35,7 +40,13 @@ const Mature = () => {
 
 
             {/* DOWNLOAD STATUS */}
-            <DownloadProgress />
+            {
+                processing || percentage || downloaded ? 
+                    
+                    <DownloadProgress />
+                :
+                    <SearchField />
+            }
     
 
 

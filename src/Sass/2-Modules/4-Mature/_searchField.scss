@@ -1,0 +1,57 @@
+.searchFieldArea {
+  @include size(100%, 100%);
+  @include flex();
+
+  & .searchFieldDiv {
+    @include size(50px, 250px);
+    @include flex(row);
+    background-color: white;
+    box-shadow: 0 0px 7px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    padding: 0 15px;
+
+    & .searchIcon {
+      @include size(17px);
+      mask: url(/src/assets/search.svg);
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: $darkGrey;
+      cursor: pointer;
+    }
+
+    & .searchInput {
+      @include size(100%, 80%);
+
+      &:focus ~ .searchIcon {
+        animation: switchToCloseIcon 0.2s ease-in-out;
+        @include size(15px);
+        mask: url(/src/assets/close.svg);
+        mask-repeat: no-repeat;
+        mask-position: center;
+        background-color: $darkGrey;
+        cursor: pointer;
+      }
+    }
+
+    &::placeholder,
+    & {
+      font-size: 15px;
+      letter-spacing: 2px;
+      color: $darkGrey;
+    }
+  }
+}
+
+@keyframes switchToCloseIcon {
+  0% {
+    mask: url(/src/assets/search.svg);
+    @include size(17px);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    @include size(15px);
+    mask: url(/src/assets/close.svg);
+  }
+}

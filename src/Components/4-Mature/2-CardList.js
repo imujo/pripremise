@@ -8,7 +8,8 @@ const CardList = () => {
 
     // Splide options
     let primaryOptions = {
-        type: 'loop',
+        // type: 'loop',
+        start: 3,
         autoWidth: true,
         drag: false,
         gap: '40px',
@@ -17,7 +18,6 @@ const CardList = () => {
         pagination: false,
         focus: 'center',
         trimSpace: false,
-        start: 2,
         height: "auto",
     }
 
@@ -25,9 +25,7 @@ const CardList = () => {
 
 
     // State
-    const {matureListGlobal} = useContext(BackendContext)
-    const [matureList, ] = matureListGlobal
-
+    const {filteredMatureList} = useContext(BackendContext)
 
 
     var data = []
@@ -41,7 +39,7 @@ const CardList = () => {
             <Splide className='splide'  options={primaryOptions} >
 
 
-                {matureList.map((matura, i) =>{
+                {filteredMatureList.map((matura, i) =>{
                     return(
 
 

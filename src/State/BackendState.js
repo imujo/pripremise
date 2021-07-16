@@ -25,6 +25,16 @@ const BackendContextProvider = (props) => {
                 const [matureList, setmatureList] = useState([])
                 const [matureLoaded, setmatureLoaded] = useState(false)
 
+            // Filter Mature
+
+                const [searchField, setSearchField] = useState('')
+                let filteredMatureList = matureList.filter(matura =>{
+                    let filter = matura.predmet.toLowerCase().includes(searchField.toLocaleLowerCase())
+                    return filter
+                })
+         
+
+
         //#endregion
 
         // Get Mature
@@ -78,6 +88,13 @@ const BackendContextProvider = (props) => {
     //#endregion
     
 
+
+    const [test, setTest] = useState({})
+
+    useEffect(() => {
+        console.log(test)
+    }, [test])
+
     //#region RETURN 
     return(
         <BackendContext.Provider value={{
@@ -90,6 +107,9 @@ const BackendContextProvider = (props) => {
             processingGlobal: [processing, setprocessing],
             percentageGlobal:[percentage, setpercentage],
             downloadedGlobal: [downloaded, setdownloaded],
+            searchFieldGlobal: [searchField, setSearchField],
+            filteredMatureList: filteredMatureList,
+            testGlobal: [test, setTest]
 
         }} >
             {props.children}

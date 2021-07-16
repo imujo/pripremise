@@ -8,7 +8,25 @@ import {BackendContext} from '../../State/BackendState'
 
 
 const Card = ({predmet, dvijerazine, data}) => {
+    const {preuzmiGlobal, requestGlobal, testGlobal} = useContext(BackendContext)
 
+    const [test, setTest] = testGlobal
+
+    let isSelectedDefault = 0 // store these in useRef
+    let razinaADefault= false
+    let razinaBDefault = false
+    let yearsDefault = [2011, 2019]
+
+
+   
+    useEffect(() => {
+        if (test[predmet] && test[predmet]['isselected']){
+            isSelectedDefault = test[predmet]['isselected']
+            razinaADefault= test[predmet]['razinaA']
+            razinaBDefault = test[predmet]['razinaB']
+            yearsDefault = test[predmet]['years']
+        }
+    }, [test])
 
     //#region Frontend State
 
@@ -69,10 +87,11 @@ const Card = ({predmet, dvijerazine, data}) => {
 
     //#region From State
 
-        const [isselected, setisselected] = useState(0)
-        const [years, setYears] = useState([2011, 2019]);
-        const [razinaA, setRazinaA] = useState(false)
-        const [razinaB, setRazinaB] = useState(false)
+
+        const [isselected, setisselected] = useState(isSelectedDefault)
+        const [years, setYears] = useState(yearsDefault);
+        const [razinaA, setRazinaA] = useState(razinaADefault)
+        const [razinaB, setRazinaB] = useState(razinaBDefault)
         const [razineerror, setrazineError] = useState(0)
 
     //#endregion
@@ -81,10 +100,8 @@ const Card = ({predmet, dvijerazine, data}) => {
     
     //#region Global State
 
-        const {preuzmiGlobal, requestGlobal} = useContext(BackendContext)
         const [preuzmi, ] = preuzmiGlobal
         const [, setrequest] = requestGlobal
-    
     //#endregion
 
 
@@ -128,6 +145,19 @@ const Card = ({predmet, dvijerazine, data}) => {
     }, [preuzmi])
     
 
+    
+
+
+    const addToTest = () => {
+        setTest({...test, [predmet]: {
+            isselected: isselected,
+            dvijerazine: dvijerazine,
+            razinaA: razinaA,
+            razinaB: razinaB,
+            years: years
+        }})
+    }   
+    
 
     return(
         <div 
@@ -164,7 +194,7 @@ const Card = ({predmet, dvijerazine, data}) => {
                                 name="razinaA" 
                                 id="razinaA" 
                                 className='checkbox'
-                                onClick={()=>setRazinaA(!razinaA)}
+                                onClick={()=>{setRazinaA(!razinaA);addToTest()}}
                             />
                         </div>
                         <RazineError razineerror={razineerror} />
@@ -175,7 +205,7 @@ const Card = ({predmet, dvijerazine, data}) => {
                                 name="razinaB" 
                                 id="razina" 
                                 className='checkbox' 
-                                onClick={()=>setRazinaB(!razinaB)}
+                                onClick={()=>{setRazinaB(!razinaB);addToTest()}}
                             />
                         </div>
                     </div>
@@ -190,7 +220,7 @@ const Card = ({predmet, dvijerazine, data}) => {
                     <ThemeProvider theme={muiTheme}>
                         <Slider
                             value={years}
-                            onChange={(e, newYears)=>setYears(newYears)}
+                            onChange={(e, newYears)=>{setYears(newYears); addToTest()}}
                             valueLabelDisplay="auto"
                             aria-labelledby="range-slider"
                             marks={marks}
@@ -203,7 +233,7 @@ const Card = ({predmet, dvijerazine, data}) => {
 
 
                 {/* DESECT */}
-                <p onClick={() => reset()} >Deselect</p>
+                <p onClick={() => {reset(); addToTest()}} >Deselect</p>
 
 
             </div>
@@ -213,7 +243,7 @@ const Card = ({predmet, dvijerazine, data}) => {
 
 
             // SELECT
-            <p onClick={() => {setopenanimation(1); iterateMatura(predmet)}} >Select</p>
+            <p onClick={() => {setopenanimation(1); iterateMatura(predmet); addToTest()}} >Select</p>
         
         
         }

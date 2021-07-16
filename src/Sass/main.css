@@ -1206,6 +1206,143 @@ nav li:active {
   }
 }
 
+.searchFieldArea {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.searchFieldArea .searchFieldDiv {
+  height: 50px;
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  -webkit-box-shadow: 0 0px 7px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0px 7px rgba(0, 0, 0, 0.2);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 15px;
+}
+
+.searchFieldArea .searchFieldDiv .searchIcon {
+  height: 17px;
+  width: 17px;
+  -webkit-mask: url(/src/assets/search.svg);
+          mask: url(/src/assets/search.svg);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  background-color: #686868;
+  cursor: pointer;
+}
+
+.searchFieldArea .searchFieldDiv .searchInput {
+  height: 100%;
+  width: 80%;
+}
+
+.searchFieldArea .searchFieldDiv .searchInput:focus ~ .searchIcon {
+  -webkit-animation: switchToCloseIcon 0.2s ease-in-out;
+          animation: switchToCloseIcon 0.2s ease-in-out;
+  height: 15px;
+  width: 15px;
+  -webkit-mask: url(/src/assets/close.svg);
+          mask: url(/src/assets/close.svg);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  background-color: #686868;
+  cursor: pointer;
+}
+
+.searchFieldArea .searchFieldDiv::-webkit-input-placeholder, .searchFieldArea .searchFieldDiv {
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #686868;
+}
+
+.searchFieldArea .searchFieldDiv:-ms-input-placeholder, .searchFieldArea .searchFieldDiv {
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #686868;
+}
+
+.searchFieldArea .searchFieldDiv::-ms-input-placeholder, .searchFieldArea .searchFieldDiv {
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #686868;
+}
+
+.searchFieldArea .searchFieldDiv::placeholder, .searchFieldArea .searchFieldDiv {
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #686868;
+}
+
+@-webkit-keyframes switchToCloseIcon {
+  0% {
+    -webkit-mask: url(/src/assets/search.svg);
+            mask: url(/src/assets/search.svg);
+    height: 17px;
+    width: 17px;
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    height: 15px;
+    width: 15px;
+    -webkit-mask: url(/src/assets/close.svg);
+            mask: url(/src/assets/close.svg);
+  }
+}
+
+@keyframes switchToCloseIcon {
+  0% {
+    -webkit-mask: url(/src/assets/search.svg);
+            mask: url(/src/assets/search.svg);
+    height: 17px;
+    width: 17px;
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    height: 15px;
+    width: 15px;
+    -webkit-mask: url(/src/assets/close.svg);
+            mask: url(/src/assets/close.svg);
+  }
+}
+
 .kontaktBackground {
   background-image: url("/src/assets/kontakt_background.svg");
   background-repeat: none;
