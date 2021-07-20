@@ -740,6 +740,8 @@ nav li:active {
   background-color: #c74c4c;
   -webkit-box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.4);
           box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.4);
+  -ms-grid-rows: 30% 70%;
+      grid-template-rows: 30% 70%;
 }
 
 .cardDiv[isselected="1"][openanimation="0"][closeanimation="0"] h4 {

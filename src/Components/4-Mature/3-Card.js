@@ -142,7 +142,6 @@ const Card = ({predmet, dvijerazine, data}) => {
             <h4>{predmet}</h4>
 
             
-            <div className="cardImage"></div>
         
 
 
@@ -215,7 +214,11 @@ const Card = ({predmet, dvijerazine, data}) => {
 
 
             // SELECT
-            <p onClick={() => {setopenanimation(1); iterateMatura(predmet)}} >Select</p>
+            <>
+                <div className="cardImage"></div>
+
+                <p onClick={() => {setopenanimation(1); iterateMatura(predmet)}} >Select</p>
+            </>
         
         
         }

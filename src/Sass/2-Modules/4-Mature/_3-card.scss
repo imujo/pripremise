@@ -33,6 +33,8 @@
     background-color: $mediumRed;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.4);
 
+    grid-template-rows: 30% 70%;
+
     h4 {
       color: $darkRed;
     }
