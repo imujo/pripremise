@@ -699,12 +699,19 @@ nav li:active {
   display: grid;
   -ms-grid-columns: 100%;
       grid-template-columns: 100%;
-  -ms-grid-rows: 30% 70%;
-      grid-template-rows: 30% 70%;
+  -ms-grid-rows: 30% 50% 20%;
+      grid-template-rows: 30% 50% 20%;
   justify-items: center;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+}
+
+.cardDiv .cardImage {
+  background: url("/src/assets/Bio.svg") center no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
 }
 
 .cardDiv p {
@@ -723,7 +730,7 @@ nav li:active {
           align-items: center;
   cursor: pointer;
   width: 100%;
-  height: 35%;
+  height: 100%;
 }
 
 .cardDiv[isselected="1"][openanimation="0"][closeanimation="0"] {

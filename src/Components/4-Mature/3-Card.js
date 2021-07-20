@@ -139,8 +139,10 @@ const Card = ({predmet, dvijerazine, data}) => {
         >
 
 
-
             <h4>{predmet}</h4>
+
+            
+            <div className="cardImage"></div>
         
 
 
