@@ -85,14 +85,16 @@ export const requestDownload = (objectObjects, setprocessing, setpercentage, set
         })
     )
     .then((res)=>res.blob())
-    .then((response) => {
-        const url = window.URL.createObjectURL(new Blob([response]));
+    .then((blob) => {
+        const url = window.URL.createObjectURL(new Blob([blob]));
         const link = document.createElement('a');
         link.href = url;
         link.setAttribute('download', 'Mature.zip');
         document.body.appendChild(link);
         link.click();
         link.parentNode.removeChild(link);
+
+
         setpercentage(0)
         setdownloaded(1)
         setTimeout(function(){ setdownloaded(0) }, 5000);
