@@ -3,7 +3,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { useContext, useEffect, useState } from 'react';
 import RazineError from './RazineError'
-import {iterateMatura, checkRazinaError, sendRequest} from '../../Functions'
+import {iterateMatura, updateStateArray} from '../../Functions'
 import {BackendContext} from '../../State/BackendState'
 
 
@@ -81,10 +81,14 @@ const Card = ({predmet, dvijerazine, data}) => {
     
     //#region Global State
 
-        const {preuzmiGlobal, requestGlobal} = useContext(BackendContext)
-        const [preuzmi, ] = preuzmiGlobal
-        const [, setrequest] = requestGlobal
-    
+        const {predmetiListGlobal} = useContext(BackendContext)
+
+        const [predmetiList, setPredmetiList] = predmetiListGlobal
+
+
+        
+
+ 
     //#endregion
 
 
@@ -117,17 +121,48 @@ const Card = ({predmet, dvijerazine, data}) => {
         setYears([2011, 2019]);
     }
 
-    // ON PREUZMI
-    useEffect(() => {
-        checkRazinaError(isselected, dvijerazine, razinaA, razinaB) ? setrazineError(1) : setrazineError(0)
-
-        if (isselected){
-            sendRequest(data, predmet, years, dvijerazine, razinaA, razinaB, setrequest)
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [preuzmi])
+    
     
 
+
+    // Update global state
+    useEffect(() => {
+        if (isselected === 1){
+            updateStateArray(predmet, 'isselected', true, predmetiList, setPredmetiList)
+        }else{
+            updateStateArray(predmet, 'isselected', false, predmetiList, setPredmetiList)
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isselected, predmet, setPredmetiList])
+
+
+    useEffect(() => {
+        let timeout = setTimeout(()=>updateStateArray(predmet, 'years', years, predmetiList, setPredmetiList), 500)
+
+        return () => {
+            clearTimeout(timeout)
+        }
+        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [years, predmet, setPredmetiList])
+
+
+    useEffect(() => {
+        updateStateArray(predmet, 'razinaA', razinaA, predmetiList, setPredmetiList)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [razinaA, predmet, setPredmetiList])
+
+
+    useEffect(() => {
+        
+        updateStateArray(predmet, 'razinaB', razinaB, predmetiList, setPredmetiList)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [razinaB, predmet, setPredmetiList])
+
+
+    
+    
+    
 
     return(
         <div 

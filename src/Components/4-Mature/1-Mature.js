@@ -11,9 +11,8 @@ const Mature = () => {
 
     //#region State
 
-        const {matureLoadedGlobal, preuzmiGlobal} = useContext(BackendContext)
+        const {matureLoadedGlobal, download} = useContext(BackendContext)
         const [matureLoaded, ] = matureLoadedGlobal
-        const [preuzmi, setpreuzmi] = preuzmiGlobal
 
     //#endregion
 
@@ -25,6 +24,10 @@ const Mature = () => {
         }
     
     //#endregion
+
+
+
+    
 
     return(
         <div className="matureBackground">
@@ -66,7 +69,7 @@ const Mature = () => {
             {/* PREUZMI BUTTON */}
             <div 
                 className="preuzmiBtn btnFont" 
-                onClick={()=>setpreuzmi(!preuzmi)}
+                onClick={download}
             >
                 Preuzmi
             </div>

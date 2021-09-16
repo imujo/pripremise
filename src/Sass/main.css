@@ -732,6 +732,8 @@ nav li:active {
 }
 
 .cardDiv[isselected="1"][openanimation="0"][closeanimation="0"] {
+  -ms-grid-rows: 30% 70%;
+      grid-template-rows: 30% 70%;
   -webkit-transform: scale(0.94);
           transform: scale(0.94);
   background-image: none;

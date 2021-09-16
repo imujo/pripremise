@@ -1,6 +1,6 @@
-import React, {useState, createContext, useEffect, useContext, useRef} from 'react'
+import React, {useState, createContext, useEffect, useContext} from 'react'
 import {FrontendContext} from './FrontendState'
-import {getMature, checkRazinaError, arrayObjectsToObjectObjects, requestDownload} from '../Functions'
+import {getMature, checkRazinaError, arrayObjectsToObjectObjects, requestDownload, getSelected} from '../Functions'
 
 
 const BackendContext = createContext();
@@ -8,7 +8,6 @@ const BackendContext = createContext();
 const BackendContextProvider = (props) => {
 
     const {REACT_APP_IP} = process.env
-    const initialRender = useRef(true)
 
 
 
@@ -42,7 +41,6 @@ const BackendContextProvider = (props) => {
 
             // On Click and Request
                 const [preuzmi, setpreuzmi] = useState(false)
-                const [request, setrequest] = useState([])
 
             // Downloading
                 const [processing, setprocessing] = useState(0)
@@ -53,30 +51,48 @@ const BackendContextProvider = (props) => {
 
 
         // Download Mature
-            useEffect(() => {
-                
+            const download = () => {
                 let isError = 0
-                for (const r of request){
-                    const {dvijerazine, razinaA, razinaB} = r
-                    if (checkRazinaError(1, dvijerazine, razinaA, razinaB)){
-                        isError ++
+
+                const data = getSelected(predmetiList)
+                if (data.length){
+                    for (const obj of data){
+                        const {dvijerazine, razinaA, razinaB} = obj
+                        if (checkRazinaError(1, dvijerazine, razinaA, razinaB)){
+                            isError ++
+                        }
                     }
+    
+                    if (isError === 0){
+                        setprocessing(1)
+                        let objectObjects = arrayObjectsToObjectObjects(data)
+    
+                        requestDownload(objectObjects, setprocessing, setpercentage, setdownloaded)
+                    }
+                }else{
+                    console.log('no selected')
                 }
-                if(initialRender.current){
-                        initialRender.current = false;
-                }else if (isError === 0){
-                    setprocessing(1)
-                    let objectObjects = arrayObjectsToObjectObjects(request)
-
-                    requestDownload(objectObjects, setprocessing, setpercentage, setdownloaded)
-                }
-
-
-            }, [request])
+            }
+            
 
 
     //#endregion
+
     
+    const [predmetiList, setPredmetiList] = useState([])
+    
+    
+    useEffect(() => {
+        let predmeti = []
+        for (let i=0; i<matureList.length; i++){
+            const obj = matureList[i]
+            predmeti.push({ predmet: obj.predmet, isselected: false, dvijerazine: obj.dvijerazine, razinaA: false, razinaB: false, years: [2011, 2019]})
+
+        }
+        setPredmetiList(predmeti)
+    }, [matureList])
+    
+
 
     //#region RETURN 
     return(
@@ -86,10 +102,11 @@ const BackendContextProvider = (props) => {
             matureListGlobal: [matureList, setmatureList],
             matureLoadedGlobal: [matureLoaded, setmatureLoaded],
             preuzmiGlobal: [preuzmi, setpreuzmi],
-            requestGlobal: [request, setrequest],
             processingGlobal: [processing, setprocessing],
             percentageGlobal:[percentage, setpercentage],
             downloadedGlobal: [downloaded, setdownloaded],
+            predmetiListGlobal: [predmetiList, setPredmetiList],
+            download: download
 
         }} >
             {props.children}

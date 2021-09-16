@@ -27,6 +27,7 @@
 
   // SELECTED
   &[isselected="1"][openanimation="0"][closeanimation="0"] {
+    grid-template-rows: 30% 70%;
     transform: scale(0.94);
     background-image: none;
     background-color: $mediumRed;

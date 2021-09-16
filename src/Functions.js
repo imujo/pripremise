@@ -42,17 +42,6 @@ export const checkRazinaError = (isselected, dvijerazine, razinaA, razinaB) => {
     }
 }
 
-// SEND REQUEST
-export const sendRequest = (data, predmet, years, dvijerazine, razinaA, razinaB, setrequest) => {
-    data.push({
-        predmet: predmet,
-        years: years,
-        dvijerazine: dvijerazine,
-        razinaA: razinaA,
-        razinaB: razinaB,
-    })
-    setrequest(data)
-}
 
 // ARRAY OF OBJECT TO OBJECT OF OBJECTS
 export const arrayObjectsToObjectObjects = (arrayObjects) => {
@@ -71,6 +60,7 @@ export const arrayObjectsToObjectObjects = (arrayObjects) => {
 
 // REQUEST DOWNLOAD
 export const requestDownload = (objectObjects, setprocessing, setpercentage, setdownloaded) => {
+
     fetch(`${REACT_APP_IP}/matured`,{
         method: 'post',
         headers: {'Content-Type':'application/json'},
@@ -115,4 +105,22 @@ export const sendEmail = (e, setsent, setnotsent) => {
         setTimeout(function(){ setnotsent(0) }, 4000);
     });
     e.target.reset()
+}
+
+// UPADATE STATE VALUE
+export const updateStateArray = (predmet, key, value, stateArray, setStateArray) => {
+    let i = stateArray.findIndex(x => x.predmet === predmet)
+
+    if (i !== -1){
+        let tempArray = stateArray.slice()
+        tempArray[i][key] = value
+        setStateArray(tempArray)
+    }
+}
+
+// GET SELECTED
+export const getSelected = (predmetiList) => {
+    let tempArray = predmetiList.slice()
+    const filtered = tempArray.filter(obj => obj.isselected === true)
+    return filtered
 }
