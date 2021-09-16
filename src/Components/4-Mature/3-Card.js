@@ -67,7 +67,7 @@ const Card = ({predmet, dvijerazine, data}) => {
 
 
 
-    //#region From State
+    //#region Form State
 
         const [isselected, setisselected] = useState(0)
         const [years, setYears] = useState([2011, 2019]);
@@ -213,7 +213,10 @@ const Card = ({predmet, dvijerazine, data}) => {
 
 
             // SELECT
-            <p onClick={() => {setopenanimation(1); iterateMatura(predmet)}} >Select</p>
+            <>
+                <img className="icon" alt="predmet icon" src={`${process.env.PUBLIC_URL}/icons/${predmet}.svg`}></img>
+                <p onClick={() => {setopenanimation(1); iterateMatura(predmet)}} >Select</p>
+            </>
         
         
         }
