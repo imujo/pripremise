@@ -4,21 +4,33 @@ import Title from './Components/3-Title'
 import Mature from './Components/4-Mature/1-Mature'
 import Kontakt from './Components/5-Kontakt'
 import Footer from './Components/6-Footer'
+import ReactGa from 'react-ga'
+import { useEffect } from 'react'
+import {FrontendContextProvider} from './State/FrontendState'
+import { BackendContextProvider } from './State/BackendState';
+import useGaTracker from "./useGaTracker";
 
 function App() {
 
-  console.log(window.innerWidth)
+
+  useGaTracker()
+
 
   return (
-    <div className="App">
-      <Nav />
-      <Header />
-      <Title title='MATURE' />
-      <Mature />
-      <Title title='KONTAKT' />
-      <Kontakt />
-      <Footer />
-    </div>
+    <FrontendContextProvider>
+      <BackendContextProvider>
+        <div className="App">
+          <Nav />
+          <Header />
+          <Title title='MATURE' />
+          <Mature />
+          <Title title='KONTAKT' />
+          <Kontakt />
+          <Footer />
+        </div>
+      </BackendContextProvider>
+    </FrontendContextProvider>
+    
   );
 }
 
