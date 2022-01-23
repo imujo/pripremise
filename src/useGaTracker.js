@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 
 const useGaTracker = () => {
-    const location = {pathname: '/'};
 
     useEffect(() => {
 
@@ -15,10 +14,10 @@ const useGaTracker = () => {
             window.GA_INITIALIZED = true
         }
         console.log('runn')
-        ReactGA.set({ page: location.pathname })
-        ReactGA.pageview(location.pathname + location.search);
+        ReactGA.set({ page: '/' })
+        ReactGA.pageview('/');
 
-    }, [location]);
+    }, []);
 };
 
 export default useGaTracker;
