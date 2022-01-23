@@ -1,27 +1,35 @@
-import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { useContext } from 'react';
 import Card from './3-Card'
 import {BackendContext} from '../../State/BackendState'
 
+import SwiperCore, { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import "swiper/swiper.scss"
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+
+SwiperCore.use([ Pagination, Navigation ]);
+
 const CardList = () => {
 
+    const breakpoints = {
+        0: {
+            slidesPerView: 1,
+            centeredSlides: true,
+            spaceBetween: 50
+        },
+        700: {
+            slidesPerView: 2
+        },
+        1160: {
+            slidesPerView: 3,
+            centeredSlides: true
+        },
+        1800: {
+            slidesPerView: 4,
+        }
 
-    // Splide options
-    let primaryOptions = {
-        type: 'loop',
-        autoWidth: true,
-        drag: false,
-        gap: '40px',
-        rewind: true,
-        perMove: 1,
-        pagination: false,
-        focus: 'center',
-        trimSpace: false,
-        start: 2,
-        height: "auto",
     }
-
-
 
 
     // State
@@ -38,14 +46,20 @@ const CardList = () => {
 
 
 
-            <Splide className='splide'  options={primaryOptions} >
+            <Swiper 
+                className='splide'
+                pagination={{ clickable: true }}
+                breakpoints= {breakpoints}
+                navigation
+                
+            >
 
 
                 {matureList.map((matura, i) =>{
                     return(
 
 
-                        <SplideSlide className='test' key={i} >
+                        <SwiperSlide className='test' key={i} >
 
                             <Card 
                                 data={data}
@@ -53,14 +67,14 @@ const CardList = () => {
                                 dvijerazine={matura.dvijerazine}
                             />
 
-                        </SplideSlide>
+                        </SwiperSlide>
 
                         
                     )
                 })}
 
 
-            </Splide>
+            </Swiper>
 
     
      

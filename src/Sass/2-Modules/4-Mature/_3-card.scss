@@ -1,5 +1,5 @@
 .cardDiv {
-  @include size(407px, 315px);
+  @include size(400px, 315px);
   border-radius: 20px;
   @include gradient($grey);
   transform: scale(0.92);
@@ -123,28 +123,12 @@
   }
 }
 
-@media (max-width: 1160px) {
-  .cardDiv {
-    @include size(323px, 250px);
-  }
-}
-
 @media (max-width: 700px) {
   .cardDiv {
+    height: 320px;
+    width: 252px;
     & .checkbox {
       transform: scale(0.8);
     }
-  }
-}
-
-@media (max-height: 600px) {
-  .cardDiv {
-    @include size(258px, 200px);
-  }
-}
-
-@media (max-width: 900px) and (orientation: landscape) {
-  .cardDiv {
-    @include size(80vh, 60vh);
   }
 }
