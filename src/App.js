@@ -4,7 +4,7 @@ import Title from './Components/3-Title'
 import Mature from './Components/4-Mature/1-Mature'
 import Kontakt from './Components/5-Kontakt'
 import Footer from './Components/6-Footer'
-import ReactGa from 'react-ga'
+import ReactGa from 'react-ga4'
 import { useEffect } from 'react'
 import {FrontendContextProvider} from './State/FrontendState'
 import { BackendContextProvider } from './State/BackendState';

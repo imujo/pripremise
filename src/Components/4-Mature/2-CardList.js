@@ -51,7 +51,7 @@ const CardList = () => {
                 pagination={{ clickable: true }}
                 breakpoints= {breakpoints}
                 navigation
-                
+                allowTouchMove={false}
             >
 
 
